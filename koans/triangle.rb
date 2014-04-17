@@ -14,9 +14,20 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
-end
+  if a + b <= c ||
+    b + c <= a ||
+    a + c <= b then
+      raise TriangleError
+    end
+    
+    uniq_sides = [a,b,c].uniq.length
+    case uniq_sides
+    when 1 then :equilateral
+    when 2 then :isosceles
+    when 3 then :scalene
+    end
+  end
 
-# Error class used in part 2.  No need to change this code.
-class TriangleError < StandardError
-end
+  # Error class used in part 2.  No need to change this code.
+  class TriangleError < StandardError
+  end
